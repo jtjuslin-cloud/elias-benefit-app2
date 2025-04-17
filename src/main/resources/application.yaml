@@ -1,0 +1,48 @@
+server:
+  port: 8080
+#  ssl:
+#    enabled: true
+#    key-store: classpath:keystore.p12
+#    key-store-password: 123456
+#    key-store-type: PKCS12
+#    key-alias: springboot
+
+spring:
+  application:
+    name: backend
+
+
+  datasource:
+    username: ucct098rhcnt30
+    password: p13623a8d6a31365eae86e4115283e64fea78974b51b9771406c5871d3370d253
+    url: jdbc:postgresql://ce0lkuo944ch99.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d4voe36bk440uk?sslmode=require
+
+
+  sql:
+    init:
+      mode: always
+
+  cloud:
+    aws:
+      secretsmanager:
+        region: eu-north-1
+
+jwt:
+  private.key: classpath:./jwt-keys/app.key
+  public.key: classpath:./jwt-keys/app.pub
+
+
+logging:
+  level:
+    org.springframework:
+      security: trace
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+
+
+
